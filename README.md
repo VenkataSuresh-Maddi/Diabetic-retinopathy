@@ -5,7 +5,7 @@ Department of Computer Science & Engineering (Artificial Intelligence & Machine 
 
 Vasireddy Venkatadri Institute of Technology (VVIT)
 
-Major Project | Batch ID: AIML-C-14
+Major Project | Batch ID: AIML-B-08
 
 Abstract
 Diabetic Retinopathy (DR) is a primary cause of vision loss globally, but early detection can significantly prevent severe vision impairment. Traditional screening relies on manual evaluation by ophthalmologists, which is time-consuming and subject to inconsistency. Automated detection using Deep Learning on retinal fundus images offers scalable screening, yet many current approaches lack transparency (Explainable AI) and suffer from severe class imbalance across disease severity stages. This project proposes a robust and interpretable framework for multi-class Diabetic Retinopathy classification using deep learning, ensemble learning, and Explainable AI (XAI). Synthetic Minority Over-sampling Technique (SMOTE) is applied to handle dataset imbalance across severity grades (No DR, Mild, Moderate, Severe, Proliferative DR). Pre-trained architectures including ResNet18, EfficientNetB0, DenseNet121, and MobileNetV2 are trained and evaluated alongside hard/soft voting ensemble strategies. A custom feature-level hybrid architecture combining EfficientNetB0 and DenseNet121 is developed to capture complementary representations. Gradient-weighted Class Activation Mapping (Grad-CAM) with quantitative concentration scoring is integrated to highlight diagnostically relevant retinal regions, enhancing clinical trustworthiness. The system is built using Python, PyTorch, and OpenCV, with models trained on the APTOS 2019 dataset.

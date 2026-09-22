@@ -1,0 +1,83 @@
+APTOS 2019 Dataset
+        ↓
+Retinal Fundus Images
+        ↓
+Data Labeling
+        ↓
+Dataset Splitting
+70% Training | 20% Validation | 10% Testing
+        ↓
+Preprocessing
+        ↓
+Resize to 224 × 224
+        ↓
+Normalization
+        ↓
+Data Augmentation
+Rotation + Horizontal Flip + Brightness
+        ↓
+SMOTE Class Balancing
+        ↓
+────────────────────────────────────
+        CNN Models
+────────────────────────────────────
+        ↓
+ ┌────────────┬──────────────┬──────────────┬─────────────┐
+ │            │              │              │
+ResNet18  EfficientNetB0  DenseNet121  MobileNetV2
+ │            │              │              │
+ └────────────┴──────────────┴──────────────┘
+                    ↓
+             Model Predictions
+                    ↓
+           ┌────────┴────────┐
+           ↓                 ↓
+      Hard Voting       Soft Voting
+           │                 │
+           └────────┬────────┘
+                    ↓
+            Ensemble Prediction
+                    │
+                    │
+                    ▼
+       EfficientNetB0 + DenseNet121
+                    ↓
+             Feature Extraction
+                    ↓
+       Adaptive Average Pooling
+                    ↓
+     EfficientNetB0 → 1280 features
+     DenseNet121    → 1024 features
+                    ↓
+              Concatenation
+                    ↓
+             2304 Features
+                    ↓
+              Linear Layer
+             2304 → 512
+                    ↓
+                  ReLU
+                    ↓
+              Dropout (0.4)
+                    ↓
+              Linear Layer
+                512 → 5
+                    ↓
+             DR Classification
+                    ↓
+ ┌────────┬────────┬──────────┬────────┬──────────────┐
+ │        │        │          │        │
+No DR   Mild DR  Moderate   Severe   Proliferative
+                   DR         DR          DR
+                    ↓
+              Model Evaluation
+                    ↓
+      Accuracy | Precision | Recall
+                    ↓
+             F1-Score | ROC-AUC
+                    ↓
+           Confusion Matrix
+                    ↓
+               Grad-CAM
+                    ↓
+          Explainable Heatmap
